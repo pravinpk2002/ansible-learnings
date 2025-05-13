@@ -1,0 +1,15 @@
+- name: Run a script
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Run script
+    shell: /tmp/script/test.sh
+   
+
+
+  - name: Run script
+    shell: ./test.sh >> test.log
+    args:
+      chdir: /tmp/script/
+      creates: test.log

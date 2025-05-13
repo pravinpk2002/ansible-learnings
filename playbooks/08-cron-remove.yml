@@ -1,0 +1,9 @@
+- name: Modify Cron
+  hosts: all
+
+  tasks:
+    - name: Remove Cron Job
+      cron:
+        name: Run Test Script
+        state: absent
+        user: node1

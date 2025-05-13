@@ -1,0 +1,19 @@
+---
+- name: Cron Setup
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Add Cron Job
+    cron:
+      name: Run Test Script
+      minute: 40
+      hour: 20
+      day: 15
+      month: "*"
+      weekday: "*"
+      user: node1
+      job: /tmp/script/test.sh
+
+      
+      disabled: yes

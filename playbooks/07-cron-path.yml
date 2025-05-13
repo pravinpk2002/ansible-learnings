@@ -1,0 +1,30 @@
+- name: Modify Cron
+  hosts: all
+  become: true  # This gives sudo privileges
+
+  tasks:
+    # - name: Modify env
+    #   cron:
+    #     name: PATH
+    #     env: yes
+    #     user: node1
+    #     job: /tmp/script/test.sh
+
+    - name: Modify env
+      cron:
+        name: VAR
+        env: yes
+        user: node1
+        job: /tmp/script/test.sh
+        insertbefore: PATH
+
+    # - name: Modify env
+    #   cron:
+    #     name: VARR
+    #     env: yes
+    #     user: node1
+    #     job: /tmp/script/test.sh
+    #     insertafter: PATH
+    #     state: absent
+  
+        
