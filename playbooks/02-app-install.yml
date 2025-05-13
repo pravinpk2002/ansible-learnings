@@ -1,0 +1,16 @@
+- name: Install and Start the service     # Name of the playbook
+  hosts: all                       # Run this play on the all machine
+  become: true                            # Run tasks with sudo/root privileges
+
+  tasks:                                  # List of tasks to execute
+    - name: Installing nginx              # Task 1: Install nginx using apt
+      apt:                                # Use the apt module for Debian/Ubuntu systems
+        name: nginx                       # Package name to install
+        state: present                    # Ensure nginx is installed (won't reinstall if already there)
+        update_cache: true               # Run apt-get update before installing
+
+    - name: Starting the nginx service    # Task 2: Start and enable the nginx service
+      systemd:                           # Use the service module to manage services
+        name: nginx                       # Service to start
+        state: started                    # Ensure the service is currently running
+        enabled: true                     # Ensure it starts on boot

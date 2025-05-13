@@ -1,0 +1,13 @@
+---
+# This is a YAML document that defines an Ansible playbook
+
+- name: First Basic PB        # Name of the play (just for readability/logging)
+  hosts: localhost            # The play will run only on the local machine (localhost)
+
+  tasks:                      # Start of the list of tasks to run
+    - name: Test Connectivity # Task 1: Test if Ansible can connect to localhost
+      ping:                   # The 'ping' module checks connection (not ICMP ping, but Ansible ping)
+
+    - name: "print output"    # Task 2: Display a simple message
+      debug:                  # The 'debug' module is used to print messages
+        msg: "Alright"        # The message that will be printed in the output

@@ -1,0 +1,11 @@
+- name: Copying files to remote
+  hosts: all
+
+  tasks:
+    - name: Copy files
+      copy:
+        src: myfile.txt
+        dest: /tmp/
+        backup: true
+        mode: '0444'
+        
