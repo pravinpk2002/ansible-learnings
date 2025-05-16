@@ -1,0 +1,5 @@
+- name: Setup web server with Apache and custom page
+  hosts: all
+  become: true
+  roles:
+    - install_apache

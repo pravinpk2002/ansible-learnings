@@ -1,0 +1,15 @@
+- name: Simple handler example
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create or update a file
+      copy:
+        content: "This is a test file\n"
+        dest: /tmp/testfile.txt
+      notify: Print file created message
+
+  handlers:
+    - name: Print file created message
+      debug:
+        msg: "Handler triggered: /tmp/testfile.txt was changed."

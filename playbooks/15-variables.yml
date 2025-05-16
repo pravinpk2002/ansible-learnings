@@ -1,0 +1,17 @@
+- name: Demo Playbook with Variables
+  hosts: all
+  vars:
+    file_path: /tmp/demo.txt
+    file_content: "this is the file data  from ansible......"
+
+  tasks:
+    - name: Create a file
+      file:
+        dest: "{{ file_path }}"
+        state: touch
+      
+
+    - name: write content in file
+      copy:
+        content: "{{ file_content }}"
+        dest: "{{file_path}}"

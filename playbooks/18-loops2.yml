@@ -1,0 +1,23 @@
+- name: Install system packages
+  hosts: all
+  become: true
+
+  vars:
+    apps: [apache2, vim, telnet]
+
+  tasks:
+    - name: Installing packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ apps }}"
+      tags: install-packages
+
+
+
+
+
+
+# apache2 -v
+# vim --version
+# telnet

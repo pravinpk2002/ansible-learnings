@@ -1,0 +1,44 @@
+- name: Basic Tasks with Tags
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create a file
+      file:
+        path: /tmp/tags/myfile.txt
+        state: touch
+      tags: create_file
+
+    - name: Add content to the file
+      copy:
+        content: "This is a test file created by Ansible.\n"
+        dest: /tmp/tags/myfile.txt
+      tags: write_file
+
+    - name: Delete the file
+      file:
+        path: /tmp/tags/myfile.txt
+        state: absent
+      tags: delete_file
+
+
+
+
+
+
+
+
+
+
+# for running pertiular tag -- 
+# ansible-playbook sample_tags_playbook.yml --tags write_file
+
+# for running multiple tags
+# ansible-playbook playbook.yml --tags tag1,tag2
+
+
+# for skip or ignore some tags
+# ansible-playbook playbook.yml --skip-tags tag1,tag2
+
+
+
