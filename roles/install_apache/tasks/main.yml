@@ -1,0 +1,15 @@
+---
+# tasks file for install_apache
+
+- name: Install Apache2 on Debian
+  apt:
+    name: apache2
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Copy custom index.html
+  copy:
+    src: custom-index.html
+    dest: /var/www/html/index.html
+  notify: restart apache2
+

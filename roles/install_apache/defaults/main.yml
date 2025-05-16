@@ -1,0 +1,5 @@
+---
+# defaults file for install_apache
+
+# defaults/main.yml
+apache_package: apache2

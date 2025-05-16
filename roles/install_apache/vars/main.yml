@@ -1,0 +1,7 @@
+---
+# vars file for install_apache
+
+
+
+# vars/main.yml
+apache_port: 80
